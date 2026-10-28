@@ -44,15 +44,15 @@ pipx install git+https://github.com/bilalemregrkn/quickswap
 
 ![quickswap discover, init and status in a terminal](assets/setup.gif)
 
-1. **Pair the devices.** Give each computer its own Easy-Switch channel on every device, and keep the numbering the same on all of them, e.g. channel 1 = Windows, channel 2 = Mac. To pair a channel, select it, hold its button for about 3 seconds until the light blinks fast, then add the device in the computer's Bluetooth settings.
+1. **Pair the devices.** Give each computer its own Easy-Switch channel on every device, and keep the numbering the same on all of them, e.g. channel 1 = Mac, channel 2 = Windows. To pair a channel, select it, hold its button for about 3 seconds until the light blinks fast, then add the device in the computer's Bluetooth settings.
 2. **See what quickswap finds:**
    ```console
    $ quickswap discover
    monitors (use part of the name or id as [monitor] match):
      [ ] MSI G242  XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    logitech bluetooth devices (use pid in [[logitech]]):
-     pid = 0xB031  LIFT VERTICAL ERGONOMIC MOUSE  (3 profiles, now on 2)
-     pid = 0xB38F  POP Icon Keys  (3 profiles, now on 2)
+     pid = 0xB031  LIFT VERTICAL ERGONOMIC MOUSE  (3 profiles, now on 1)
+     pid = 0xB38F  POP Icon Keys  (3 profiles, now on 1)
    ```
 3. **Write a config.** This creates one pre-filled with what `discover` found:
    ```sh
