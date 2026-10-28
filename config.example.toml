@@ -1,0 +1,33 @@
+# Example config from a Mac (Windows on HDMI 2, Mac on HDMI 1). One per machine. Find your ids with: quickswap discover
+
+# Where a bare `quickswap` goes. Usually the *other* machine.
+default = "win"
+
+[monitor]
+# Substring identifying the monitor (case-insensitive).
+#   macOS:   matched against the name or UUID from `m1ddc display list`
+#   Windows: matched against the PnP id, e.g. MONITOR\MSI4BA4\...
+match = "MSI"
+
+# One table per computer. input = the monitor port it's plugged into (VCP 0x60 value):
+#   15 = DisplayPort 1, 16 = DisplayPort 2, 17 = HDMI 1, 18 = HDMI 2, 27 = USB-C (varies by monitor)
+# profile = the Logitech Easy-Switch channel (1-3) that's paired with that computer.
+# Leave a key out to not touch that part.
+[targets.mac]
+input = 17
+profile = 2
+
+[targets.win]
+input = 18
+profile = 1
+
+# Logitech devices connected over Bluetooth (not via a USB receiver).
+# Add `profiles = { mac = 3 }` to a device if its channels are numbered differently.
+
+[[logitech]]
+name = "keyboard"
+pid = 0xB38F
+
+[[logitech]]
+name = "mouse"
+pid = 0xB031

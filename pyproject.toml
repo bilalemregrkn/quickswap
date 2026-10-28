@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "quickswap"
+version = "0.1.0"
+description = "Switch a shared monitor and Logitech Bluetooth keyboard/mouse between two computers with one command."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+dependencies = ["hidapi>=0.14"]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: System :: Hardware",
+]
+
+[project.scripts]
+quickswap = "quickswap.cli:main"
