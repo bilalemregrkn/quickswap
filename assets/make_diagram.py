@@ -31,8 +31,9 @@ FONTS = Path("/System/Library/Fonts")
 # Each switch: monitor, keyboard, mouse move one after another, like the real output.
 FORWARD = [1.8, 2.2, 2.6]
 BACK = [5.6, 6.0, 6.4]
-OUT_TO_WIN = ["monitor: win (input 18)", "keyboard: profile 1", "mouse: profile 1"]
-OUT_TO_MAC = ["monitor: mac (input 17)", "keyboard: profile 2", "mouse: profile 2"]
+# Mac = HDMI 1 + profile 1, Windows = HDMI 2 + profile 2, so the numbers line up.
+OUT_TO_WIN = ["monitor: win (input 18)", "keyboard: profile 2", "mouse: profile 2"]
+OUT_TO_MAC = ["monitor: mac (input 17)", "keyboard: profile 1", "mouse: profile 1"]
 
 
 @cache
@@ -211,8 +212,8 @@ def frame(t):
     draw_monitor(c, m)
     draw_keyboard(c, k)
     draw_mouse(c, u)
-    draw_badge(c, (560, 500), "profile 1" if k > 0.5 else "profile 2", lerp(MAC, WIN, k))
-    draw_badge(c, (755, 500), "profile 1" if u > 0.5 else "profile 2", lerp(MAC, WIN, u))
+    draw_badge(c, (560, 500), "profile 2" if k > 0.5 else "profile 1", lerp(MAC, WIN, k))
+    draw_badge(c, (755, 500), "profile 2" if u > 0.5 else "profile 1", lerp(MAC, WIN, u))
     draw_terminal(c, t)
     return c.img.resize((OUT_W, OUT_H), Image.LANCZOS)
 
